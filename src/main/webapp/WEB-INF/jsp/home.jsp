@@ -4,7 +4,7 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-	<title>AppPedido</title>
+	<title>AppHoteleiro</title>
 </head>
 <body>
 
@@ -12,22 +12,22 @@
 	  <div class="container-fluid">
 	    <ul class="navbar-nav">
 	      <li class="nav-item">
-	        <a class="nav-link" href="/pedido/lista">Pedido</a>
+	        <a class="nav-link" href="/Reservation/List">Reserva</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/solicitante/lista">Solicitante</a>
+	        <a class="nav-link" href="/Guest/List">Hóspede</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/produto/lista">Produto</a>
+	        <a class="nav-link" href="/Service/List">Serviço</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/bebida/lista">Bebida</a>
+	        <a class="nav-link" href="/Apartment/List">Apartamento</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/comida/lista">Comida</a>
+	        <a class="nav-link" href="/Food/List">Alimentação</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/sobremesa/lista">Sobremesa</a>
+	        <a class="nav-link" href="/Leisure/List">Lazer</a>
 	      </li>
 	    </ul>
 	  </div>

@@ -1,13 +1,14 @@
-package br.edu.infnet.apppedido.model.domain;
+package br.edu.infnet.appHoleteiro.model.domain;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class Reservation {
+	private int id;
 	private LocalDateTime checkIn;
 	private LocalDateTime checkOut;
 	private confirmation = true;
-	private List<Accommodation> accommodations;
+	private List<Service> services;
 	private Guest guest;
 	
 	public Pedido() {
@@ -23,9 +24,17 @@ public class Reservation {
 
 	@Override
 	public String toString() {
-		return checkIn + ";" + checkOut + ";" + confirmation + ";" + guest + ";" + accommodation.size();
+		return id + ";" + checkIn + ";" + checkOut + ";" + confirmation + ";" + guest + ";" + services.size();
+	}
+	
+	public int getId() {
+		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public LocalDateTime getCheckIn() {
 		return checkIn;
 	}
@@ -58,28 +67,28 @@ public class Reservation {
 		this.guest = guest;
 	}
 
-	public List<Accommodation> getAccommodations() {
-		return accommodations;
+	public List<Service> getServices() {
+		return services;
 	}
 
-	public void setAccommodations(List<Accommodation> accommodations) {
-		this.accommodations = accommodations;
+	public void setServices(List<Services> services) {
+		this.services = services;
 	}
 	
-	public void AddAccommodation(Accommodation accommodation) {
-		if (accommodation.DisponivelParaLocacao() && Guest.PodeFazerReserva()) {
-			accommodation.add(accommodation);
-			Guest.AddAccommodation(accommodation)
+	public void AddService(Service service) {
+		if (service.DisponivelParaLocacao() && Guest.PodeFazerReserva()) {
+			service.add(accommodation);
+			Guest.AddService(service)
 		}
 		else {
-			throw new Error(accommodation.DisponivelParaLocacao() ? "O  hóspede já atingiu o limite de hostedagens para reserva!" : "Hotel não tem quartos disponíveis para reserva para esse hóspede!");
+			throw new Error(service.DisponivelParaLocacao() ? "O  hóspede já atingiu o limite de serviços para reserva!" : "Hotel não tem quartos disponíveis para reserva para esse hóspede!");
 		}
 	}
 	
-	public void RemoveAccommodation(Accommodation accommodation) {
-		int idAccommodation = Accommodation.indexOf(Accommodation);
-		Accommodation.remove(idAccommodation);
-		Guest.RemoverAccommodation(accommodation);
+	public void RemoveService(Service service) {
+		int idService = Service.indexOf(service);
+		Service.remove(idService);
+		Guest.RemoverService(Service);
 	}
 	
 	

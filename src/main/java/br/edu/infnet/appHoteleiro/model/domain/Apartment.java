@@ -1,7 +1,8 @@
-package br.edu.infnet.apppedido.model.domain;
+package br.edu.infnet.appHoleteiro.model.domain;
 
-public class Apartment extends Accommodation {
-	private int number;
+public class Apartment extends Service {
+	private int id;
+	private float number;
 	private List<string> itens;
 	private String type;
 	
@@ -17,11 +18,11 @@ public class Apartment extends Accommodation {
 				"Tipo de quarto: " + type;
 	}
 
-	public int getNumber() {
+	public float getNumber() {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(float number) {
 		this.number = number;
 	}
 

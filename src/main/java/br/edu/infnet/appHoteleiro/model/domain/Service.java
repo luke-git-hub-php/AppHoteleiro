@@ -1,6 +1,7 @@
-package br.edu.infnet.apppedido.model.domain;
+package br.edu.infnet.appHoleteiro.model.domain;
 
-public abstract class Accommodation {
+public abstract class Service {
+	private int id;	
 	private String name;
 	private float value;
 	private int code;
@@ -8,9 +9,17 @@ public abstract class Accommodation {
 
 	@Override
 	public String toString() {
-		return name + ";" + value + ";" + code + ";" + type;
+		return id + ";" + name + ";" + value + ";" + code + ";" + type;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return nome;
 	}

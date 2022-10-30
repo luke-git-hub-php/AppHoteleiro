@@ -1,26 +1,27 @@
-package br.edu.infnet.apppedido.model.domain;
+package br.edu.infnet.appHoleteiro.model.domain;
 
 public class Guest {
+	private int id;
 	private String name;
 	private String cpf;
 	private String cellphone;
 	private String email;
 	private int numberReversation;
-	private List<Accommodation> accommodations;
+	private List<Service> services;
 	
-	public Guest(String name, String cpf, String cellphone, String email, numberReversation + accommodations) {
+	public Guest(String name, String cpf, String cellphone, String email, int numberReversation , List<Service> services) {
 		name = name;
 		cpf = cpf;
 		cellphone = cellphone;
 		email = email;
 		numberReversation = numberReversation;
-		accommodations = new ArrayList<Accommodation>();
+		services = new ArrayList<Service>();
 	}
 	
 	@Override
 	public String toString() {
 		return "Dados do hóspede\nNome: " + name + "\CPF:" + cpf + "\Telefone:" + cellphone + "\Email:" + email +
-			   "Número de reservas:" + numberReversation + "Hospedagens:" + accommodations;
+			   "Número de reservas:" + numberReversation + "Serviços:" + services;
 	}
 
 	public String getName() {
@@ -64,28 +65,26 @@ public class Guest {
 		this.numberReversation = numberReversation;
 	}
 	
-	public List<Accommodation> getAccommodations() {
-		return accommodations;
+	public List<Services> getAccommodations() {
+		return services;
 	}
 
-	public void setAccommodations(List<Accommodation> accommodations) {
-		this.accommodations = accommodations;
+	public void setServices(List<Service> services) {
+		this.services = services;
 	}
 	
 	public Boolean isReservation() {
 		return accommodations.size() < numberReversation;
 	}
 	
-	public void AddAccommodation(Accommodation accommodation) {
-		if (accommodations.size() < numberReversation) {
-			accommodations.add(accommodation);
+	public void AddService(Service service) {
+		if (services.size() < numberReversation) {
+			services.add(service);
 		}
 	}
 	
-	public void RemoverAccommodation(Accommodation accommodation) {
-		int idAccommodation = accommodations.indexOf(accommodation);
-		accommodations.remove(idAccommodation);
+	public void RemoverService(Service service) {
+		int idService = services.indexOf(accommodation);
+		services.remove(idService);
 	}
-	
-	
 }

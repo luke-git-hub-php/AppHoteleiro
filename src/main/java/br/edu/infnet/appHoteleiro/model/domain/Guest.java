@@ -1,6 +1,16 @@
 package br.edu.infnet.appHoleteiro.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+@Table(name = "t_guest")
 public class Guest {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String cpf;
@@ -8,6 +18,9 @@ public class Guest {
 	private String email;
 	private int numberReversation;
 	private List<Service> services;
+	@ManyToOne
+	@JoinColumn(name = "idUser")
+	private User user;
 	
 	public Guest(String name, String cpf, String cellphone, String email, int numberReversation , List<Service> services) {
 		name = name;
@@ -86,5 +99,13 @@ public class Guest {
 	public void RemoverService(Service service) {
 		int idService = services.indexOf(accommodation);
 		services.remove(idService);
+	}
+	
+	public Usuario getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

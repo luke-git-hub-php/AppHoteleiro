@@ -1,6 +1,16 @@
 package br.edu.infnet.appHoleteiro.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+@Table(name = "t_leisure")
 public class Leisure extends Service {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String place;

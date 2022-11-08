@@ -30,7 +30,7 @@ v<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncodi
 		        <td>${p.valeu}</td>
 		        <td>${p.code}</td>
 		        <td>${p.type}</td>
-		        <td><a href="/Service/${p.id}/Remove">excluir</a></td>
+		        <td><a href="/service/${p.id}/Remove">excluir</a></td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>

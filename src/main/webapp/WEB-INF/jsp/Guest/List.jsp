@@ -33,7 +33,7 @@
 		        <td>${p.email}</td>
 		        <td>${p.numberReversation}</td>
 		        <td>${p.services.size()}</td>
-		        <td><a href="/Guest/${p.id}/Remove">excluir</a></td>
+		        <td><a href="/guest/${p.id}/Remove">excluir</a></td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>

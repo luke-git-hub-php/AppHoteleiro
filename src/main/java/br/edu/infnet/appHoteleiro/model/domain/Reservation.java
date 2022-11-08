@@ -3,13 +3,26 @@ package br.edu.infnet.appHoleteiro.model.domain;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+@Entity
+@Table(name = "t_reservation")
 public class Reservation {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private LocalDateTime checkIn;
 	private LocalDateTime checkOut;
 	private confirmation = true;
-	private List<Service> services;
+	@Transient
 	private Guest guest;
+	@Transient
+	private List<Service> services;
 	
 	public Pedido() {
 		checkIn = LocalDateTime.now();

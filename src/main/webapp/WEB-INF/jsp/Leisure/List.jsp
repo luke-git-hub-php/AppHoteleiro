@@ -27,7 +27,7 @@ v<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncodi
 		        <td>${p.name}</td>
 		        <td>${p.place}</td>
 		        <td>${p.type}</td>
-		        <td><a href="/Leisure/${p.id}/Remove">excluir</a></td>
+		        <td><a href="/leisure/${p.id}/Remove">excluir</a></td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>

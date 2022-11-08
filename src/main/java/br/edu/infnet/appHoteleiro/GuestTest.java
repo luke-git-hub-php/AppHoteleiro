@@ -8,16 +8,20 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.apppedido.controller.PedidoController;
 import br.edu.infnet.apppedido.model.domain.Guest;
 
-@Order(2)
+import br.edu.infnet.apppedido.model.service.GuestService;
+
+@Order(3)
 @Component
 public class GuesTest implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("## Cadastramento de hóspedes ##");
+		
+		@Autowired
+		private GuestService guestService;
 		
 		Guest guest1 = new Guest();		
 		guest1.setName("Lucas"); 
@@ -26,7 +30,7 @@ public class GuesTest implements ApplicationRunner {
 		guest.setEmail("lucasvieira@gmail.com");
 		guest1.setNumberReversation(1);
 		guest1.setServices(firstDayService);
-		GuestController.Add(guest1);
+		guestService.Add(guest1);
 		
 		Guest guest2 = new Guest();		
 		guest2.setName("Carlos"); 
@@ -35,6 +39,6 @@ public class GuesTest implements ApplicationRunner {
 		guest2.setEmail("carlossilva@gmail.com");
 		guest2.setNumberReversation(4);
 		guest2.setServices(othersDaysService);
-		GuestController.Add(guest2);
+		guestService.Add(guest2);
 	}
 }

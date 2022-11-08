@@ -32,7 +32,7 @@
 		        <td>${p.confirmation}</td>
 		        <td>${p.guest.name}</td>
 		        <td>${p.services.size()}</td>
-		        <td><a href="/Reservation/${p.id}/Remove">excluir</a></td>
+		        <td><a href="/reservation/${p.id}/Remove">excluir</a></td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>

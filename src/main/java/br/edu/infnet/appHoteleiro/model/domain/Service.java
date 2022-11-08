@@ -1,7 +1,20 @@
 package br.edu.infnet.appHoleteiro.model.domain;
 
+import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+@Entity
+@Table(name = "tservice")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Service {
-	private int id;	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String name;
 	private float value;
 	private int code;

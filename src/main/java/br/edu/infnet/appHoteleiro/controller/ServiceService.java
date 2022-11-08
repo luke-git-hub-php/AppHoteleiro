@@ -5,23 +5,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import br.edu.infnet.appHoleteiro.service.LeisureService;
+import br.edu.infnet.appHoleteiro.service.Service_Service;
 
 @Controller
-public class LeisureController {
+public class ServiceController {
 	
 	@Autowired
-	private LeisureService leisureService;
+	private Service_Service service_Service;
 	
-	@GetMapping(value = "/leisure/list")
+	@GetMapping(value = "/service/list")
 	public String List(Model model) {
-		model.addAttribute("lazeres", leisureService.GetList());
-		return "leisure/list";
+		model.addAttribute("serviços", service_Service.GetList());
+		return "service/list";
 	}
 	
-	@GetMapping(value = "/leisure/{id}/delete")
+	@GetMapping(value = "/service/{id}/delete")
 	public String Delete(@PathVariable Integer id) {
-		leisureService.Remove(id);
-		return "redirect:/leisure/list";
+		service_Service.Remove(id);
+		return "redirect:/service/list";
 	}
 }

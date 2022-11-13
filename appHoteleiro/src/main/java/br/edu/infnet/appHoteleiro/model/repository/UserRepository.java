@@ -8,5 +8,5 @@ import br.edu.infnet.appHoleteiro.model.domain.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
 
-	Usuario findByEmail(String email);
+	User findByEmail(String email);
 }

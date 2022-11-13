@@ -4,10 +4,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.appHoleteiro.model.domain.Guest;
+import br.edu.infnet.appHoleteiro.model.domain.Service;
 
 @Repository
-public interface GuestRepository extends CrudRepository<Guest, Integer>{
-	@Query("from Guest p where p.user.id =:userid")
-	List<Guest> GetLista(Integer userid);
+public interface ServiceRepository extends CrudRepository<Service, Integer>{
+	@Query("from Service p where p.user.id =:userid")
+	List<Service> GetList(Integer userid);
 }

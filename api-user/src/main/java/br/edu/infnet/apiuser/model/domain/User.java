@@ -1,37 +1,26 @@
-package br.edu.infnet.appHoleteiro.model.domain;
+package br.edu.infnet.apiuser.model.domain;
 
-import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tuser")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String name;
 	private String email;
 	private String password;
-	@OneToMany
-	@JoinColumn(name = "idUser")
-	private List<Guest> guests;
-	
-	@OneToMany
-	@JoinColumn(name = "idUser")
-	private List<Reservation> reservation;
-	@OneToMany
-	@JoinColumn(name = "idUser")
-	private List<Service> services;
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "idendereco")
-	private Address address;
+	private Endereco endereco;
 	
 	@Override
 	public String toString() {
@@ -68,30 +57,6 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public List<Guest> getGuests() {
-		return guests;
-	}
-
-	public void setGuests(List<Guest> Guests) {
-		this.guests = guests;
-	}
-
-	public List<Reservation> getReservation() {
-		return reservation;
-	}
-
-	public void setReservation(List<Reservation> reservation) {
-		this.reservation = reservation;
-	}
-	
-	public List<Service> getServices() {
-		return services;
-	}
-
-	public void setServices(List<Service> services) {
-		this.services = services;
 	}
 	
 	public Address getAddress() {

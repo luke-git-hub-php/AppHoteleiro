@@ -9,5 +9,5 @@ import br.edu.infnet.appHoleteiro.model.domain.Reservation;
 @Repository
 public interface ReservationRepository extends CrudRepository<Reservation, Integer>{
 	@Query("from Reservation p where p.user.id =:userid")
-	List<Reservation> GetLista(Integer userid);
+	List<Reservation> GetList(Integer userid);
 }

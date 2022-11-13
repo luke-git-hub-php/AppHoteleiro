@@ -9,42 +9,42 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
-import br.edu.infnet.appHoleteiro.model.domain.Leisure;
+import br.edu.infnet.appHoleteiro.model.domain.Service;
 import br.edu.infnet.appHoleteiro.model.domain.User;
-import br.edu.infnet.appHoleteiro.service.LeisureService;
+import br.edu.infnet.appHoleteiro.service.Service_Service
 
 @Controller
-public class LeisureController {
+public class ServiceController {
 	
 	@Autowired
-	private LeisureService leisureService;
+	private Service_Service service_Service;
 	
-	@GetMapping(value = "/leisure/List")
+	@GetMapping(value = "/service/List")
 	public String List(Model model, @SessionAttribute("user") User user) {
 
-		model.addAttribute("leisure", leisureService.GetList(user));
+		model.addAttribute("service", service_Service.GetList(user));
 		
-		return "leisure/List";
+		return "service/List";
 	}
 	
-	@GetMapping(value = "/leisure/AddScreen")
+	@GetMapping(value = "/service/AddScreen")
 	public String AddScreen(Model model) {
-		model.addAttribute("leisure", leisureService.GetList());
-		return "leisure/AddScreen";
+		model.addAttribute("service", service_Service.GetList());
+		return "service/AddScreen";
 	}
 
-	@PostMapping(value = "/leisure/Create")
-	public String Create(Leisure leisure) {
-			
-		leisure.setUser(user);
-		leisureService.Add(leisure);
+	@PostMapping(value = "/service/Create")
+	public String Create(Service service, @SessionAttribute("user") User user) {
+
+		service.setUser(user);
+		service_Service.Add(service);
 		
-		return "redirect:/leisure/List";
+		return "redirect:/service/List";
 	}
 	
-	@GetMapping(value = "/leisure/{id}/Delete")
+	@GetMapping(value = "/service/{id}/Delete")
 	public String Delete(@PathVariable Integer id) {
-		leisureService.Remove(id);
-		return "redirect:/leisure/List";
+		service_Service.Remove(id);
+		return "redirect:/service/List";
 	}
 }

@@ -1,29 +1,32 @@
 package br.edu.infnet.appHoleteiro.model.service;
 
 import java.util.Collection;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.appHoleteiro.clients.IAddressClient;
+import br.edu.infnet.appHoleteiro.model.domain.Address;
 import br.edu.infnet.appHoleteiro.model.domain.User;
-import br.edu.infnet.appHoleteiro.model.repository.UserRepository;
+import br.edu.infnet.appHoleteiro.repository.UserRepository;
 
 @Service
 public class UserService {
-	@Autowired 
-	private UserRepository userRepository;
+	@Autowired
+	private IAddressClient addressClient;
+	@Autowired
+	private IUserlient userClient;
+
 	
 	public void Add(User user) {
-		userRepository.Save(user);
+		userClient.Add(user);
 	}
 	
-	public void Remove(Integer id) {
-		userRepository.DeleteById(id);
+	public void Delete(Integer id) {
+		userClient.DeleteById(id);
 	}
 	
 	public Collection<User> GetList(){
-		return (Collection<User>) userRepository.findAll();
+		return (Collection<User>) userClient.GetList();
 	}
 	
 	public User Validate(String email, String password) {
@@ -34,5 +37,9 @@ public class UserService {
 		}
 		
 		return null;
+	}
+	
+	public Address GetAddressByCEP(String cep) {
+		return addressClient.GetCep(cep);
 	}
 }

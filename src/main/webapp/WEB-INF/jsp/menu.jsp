@@ -10,36 +10,36 @@
       <li class="active"><a href="#">Home</a></li>
 	  <c:if test="${not empty user}">
 	      <li class="nav-item">
-	        <a class="nav-link" href="/user/list">Usuário</a>
+	        <a class="nav-link" href="/user/List">Usuário</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/reservation/list">Pedido</a>
+	        <a class="nav-link" href="/reservation/List">Pedido</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/guest/list">Solicitante</a>
+	        <a class="nav-link" href="/guest/List">Solicitante</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/service/list">Produto</a>
+	        <a class="nav-link" href="/service/List">Produto</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/leisure/list">Bebida</a>
+	        <a class="nav-link" href="/leisure/List">Bebida</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/food/list">Comida</a>
+	        <a class="nav-link" href="/food/List">Comida</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/apartment/list">Sobremesa</a>
+	        <a class="nav-link" href="/apartment/List">Sobremesa</a>
 	      </li>
       </c:if>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <c:if test="${empty user}">
-	      <li><a href="/user/add"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>      
-	      <li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	      <li><a href="/user/AddScreen"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>      
+	      <li><a href="/user/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </c:if>
       
       <c:if test="${not empty user}">
-      	  <li><a href="user/logout"><span class="glyphicon glyphicon-log-out"></span> Logout ${user.nome}</a></li>
+      	  <li><a href="user/Logout"><span class="glyphicon glyphicon-log-out"></span> Logout ${user.nome}</a></li>
       </c:if>
     </ul>
   </div>

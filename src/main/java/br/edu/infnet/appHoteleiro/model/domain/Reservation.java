@@ -23,6 +23,9 @@ public class Reservation {
 	private Guest guest;
 	@Transient
 	private List<Service> services;
+	@ManyToOne
+	@JoinColumn(name = "idUser")
+	private User user;
 	
 	public Pedido() {
 		checkIn = LocalDateTime.now();
@@ -88,21 +91,11 @@ public class Reservation {
 		this.services = services;
 	}
 	
-	public void AddService(Service service) {
-		if (service.DisponivelParaLocacao() && Guest.PodeFazerReserva()) {
-			service.add(accommodation);
-			Guest.AddService(service)
-		}
-		else {
-			throw new Error(service.DisponivelParaLocacao() ? "O  hóspede já atingiu o limite de serviços para reserva!" : "Hotel não tem quartos disponíveis para reserva para esse hóspede!");
-		}
+	public User getUser() {
+		return user;
 	}
-	
-	public void RemoveService(Service service) {
-		int idService = Service.indexOf(service);
-		Service.remove(idService);
-		Guest.RemoverService(Service);
+
+	public void setUser(User user) {
+		this.user = user;
 	}
-	
-	
 }

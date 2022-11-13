@@ -19,6 +19,11 @@ public abstract class Service {
 	private float value;
 	private int code;
 	private String type;
+	@ManyToMany(mappedBy = "service")
+	private List<Reservation> reservation;
+	@ManyToOne
+	@JoinColumn(name = "idUser")
+	private User user;
 
 	@Override
 	public String toString() {
@@ -63,5 +68,21 @@ public abstract class Service {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+	
+	public List<Reservation> getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(List<Reservation> reservation) {
+		this.reservation = reservation;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

@@ -5,7 +5,7 @@ v<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncodi
 <head>
 	<meta charset="ISO-8859-1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-	<title>Cadastramento de Lazer</title>
+	<title>Listagem de Lazer</title>
 </head>
 <body>
 	<div class="container mt-3">

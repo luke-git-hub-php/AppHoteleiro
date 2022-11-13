@@ -23,6 +23,16 @@ public class User {
 	@JoinColumn(name = "idUser")
 	private List<Guest> guests;
 	
+	@OneToMany
+	@JoinColumn(name = "idUser")
+	private List<Reservation> reservation;
+	@OneToMany
+	@JoinColumn(name = "idUser")
+	private List<Service> services;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "idendereco")
+	private Address address;
+	
 	@Override
 	public String toString() {
 		return id + ";" + name + ";" + email + ";" + password;
@@ -66,5 +76,29 @@ public class User {
 
 	public void setGuests(List<Guest> Guests) {
 		this.guests = guests;
+	}
+
+	public List<Reservation> getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(List<Reservation> reservation) {
+		this.reservation = reservation;
+	}
+	
+	public List<Service> getServices() {
+		return services;
+	}
+
+	public void setServices(List<Service> services) {
+		this.services = services;
+	}
+	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }

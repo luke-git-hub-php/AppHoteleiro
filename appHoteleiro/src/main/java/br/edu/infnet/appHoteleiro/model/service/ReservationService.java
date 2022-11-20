@@ -7,26 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appHoleteiro.model.domain.Reservation;
-import br.edu.infnet.appHoleteiro.model.repository.ReservationRepository;
+import br.edu.infnet.appHoleteiro.clients.IReservationClient;
 
 @Service
 public class ReservationService {
-	@Autowired 
-	private ReservationRepository reservationRepository;
+
+	@Autowired
+	private IReservationClient reservationClient;
 	
 	public void Add(Reservation reservation) {
-		reservationRepository.Save(reservation);
+		reservationClient.Save(reservation);
 	}
 	
 	public void Remove(Integer id) {
-		reservationRepository.DeleteById(id);
+		reservationClient.DeleteById(id);
 	}
 	
 	public Collection<Reservation> GetList(){
-		return (Collection<Reservation>) reservationRepository.findAll();
-	}
-	
-	public Optional<Reservation> GetById(Integer id){
-		return reservationRepository.findById(id);
+		return (Collection<Reservation>) reservationClient.findAll();
 	}
 }

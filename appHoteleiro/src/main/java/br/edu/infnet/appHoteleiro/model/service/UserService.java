@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appHoleteiro.clients.IAddressClient;
+import br.edu.infnet.appHoleteiro.clients.IUserClient;
 import br.edu.infnet.appHoleteiro.model.domain.Address;
 import br.edu.infnet.appHoleteiro.model.domain.User;
 import br.edu.infnet.appHoleteiro.repository.UserRepository;
@@ -14,7 +15,7 @@ public class UserService {
 	@Autowired
 	private IAddressClient addressClient;
 	@Autowired
-	private IUserlient userClient;
+	private IUserClient userClient;
 
 	
 	public void Add(User user) {

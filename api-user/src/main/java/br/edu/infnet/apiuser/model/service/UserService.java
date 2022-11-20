@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
-import br.edu.infnet.apiusuario.model.domain.User;
-import br.edu.infnet.apiusuario.model.repository.UserRepository;
+import br.edu.infnet.apiuser.model.domain.User;
+import br.edu.infnet.apiuser.model.repository.UserRepository;
 
 @Service
 public class UserService {
@@ -15,7 +15,7 @@ public class UserService {
 	private UserRepository userRepository;
 
 	public void Add(User user) {
-		usuarioRepository.save(usuario);
+		usuarioRepository.save(user);
 	}
 
 	public void Delete(Integer id) {

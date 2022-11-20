@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.infnet.apiusuario.model.domain.User;
-import br.edu.infnet.apiusuario.model.service.UserService;
+import br.edu.infnet.apiuser.model.domain.User;
+import br.edu.infnet.apiuser.model.service.UserService;
 
 @RestController
 @RequestMapping("/api/user")
@@ -24,11 +24,11 @@ public class UserController {
 
 	@PostMapping(value = "/Create")
 	public void Create(@RequestBody User user) {
-		userService.Add(usuario);
+		userService.Add(user);
 	}
 	
 	@DeleteMapping(value = "/{id}/Delete")
-	public void Deletes(@PathVariable Integer id) {
+	public void Delete(@PathVariable Integer id) {
 		userService.Delete(id);
 	}
 	

@@ -4,29 +4,26 @@ import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Guest;
+import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appHoleteiro.model.domain.Guest;
-import br.edu.infnet.appHoleteiro.model.repository.GuestRepository;
+import br.edu.infnet.appHoleteiro.clients.IGuestClient;
 
 @Service
 public class GuestService {
-	@Autowired 
-	private GuestRepository guestRepository;
+
+	@Autowired
+	private IGuestClient guestClient;
 	
 	public void Add(Guest guest) {
-		guestRepository.Save(guest);
+		guestClient.Save(guest);
 	}
 	
 	public void Remove(Integer id) {
-		guestRepository.DeleteById(id);
+		guestClient.DeleteById(id);
 	}
 	
 	public Collection<Guest> GetList(){
-		return (Collection<Guest>) guestRepository.findAll();
-	}
-	
-	public Optional<Guest> GetById(Integer id){
-		return guestRepository.findById(id);
+		return (Collection<Guest>) guestClient.findAll();
 	}
 }

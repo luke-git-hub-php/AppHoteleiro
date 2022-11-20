@@ -7,26 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appHoleteiro.model.domain.Service;
-import br.edu.infnet.appHoleteiro.model.repository.ServiceRepository;
+import br.edu.infnet.appHoleteiro.clients.IServiceClient;
 
 @Service
 public class Service_Service {
-	@Autowired 
-	private ServiceRepository serviceRepository;
+
+	@Autowired
+	private IServiceClient serviceClient;
 	
 	public void Add(Service service) {
-		serviceRepository.Save(service);
+		serviceClient.Save(service);
 	}
 	
 	public void Remove(Integer id) {
-		serviceRepository.DeleteById(id);
+		serviceClient.DeleteById(id);
 	}
 	
 	public Collection<Service> GetList(){
-		return (Collection<Service>) serviceRepository.findAll();
-	}
-	
-	public Optional<Service> GetById(Integer id){
-		return serviceRepository.findById(id);
+		return (Collection<Service>) serviceClient.findAll();
 	}
 }
